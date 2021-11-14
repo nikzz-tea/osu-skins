@@ -6,20 +6,7 @@
     border: none;
     text-decoration: none;
     color: white;
-}
-
-.title {
-    padding: 18px 20%;
-    font-size: 26px;
-}
-
-.title h2 {
-    display: inline;
-    transition: 0.2s;
-}
-
-.title h2:hover {
-    color: rgba(255, 255, 255, 0.8);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -28,13 +15,41 @@ body {
 }
 
 header {
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 80px;
     background-color: #19171d;
     position: sticky;
     top: 0;
-    /* border-bottom: 3px solid #130913; */
     box-shadow: 0px 0px 20px 0px #000;
+}
+
+.header {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+
+header h2 {
+    transition: 0.4s;
+}
+
+header h2:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+header img {
+    transition: 0.4s;
+    margin-top: 6px;
+}
+
+header img:hover {
+    opacity: 0.6;
 }
 
 .description {
@@ -47,63 +62,62 @@ header {
 }
 
 .hello {
-    padding-top: 40px;
-    font-size: 30px;
+    padding-top: 30px;
+    font-size: 36px;
+    margin-bottom: 15px;
 }
 
 .imgay {
-    padding-top: 10px;
-    font-size: 21px;
+    font-size: 22px;
 }
 
 .content {
-    max-width: 1470px;
-    height: 1900px;
+    max-width: 1450px;
     /* background-color: rgba(255, 255, 255, 0.15); */
     margin: 0px auto;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    justify-content: space-around;
 }
 
 .block {
     width: 450px;
     height: 430px;
     margin-top: 30px;
-    margin-left: 30px;
     background-color: #453f4d;
     border-radius: 30px;
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .skinname {
+    height: 80px;
+    line-height: 80px;
     text-align: center;
     font-size: 32px;
-    margin-top: 20px;
     color: rgb(218, 209, 230);
 }
 
 .preview {
     width: 450px;
-    margin-top: 20px;
+    height: 250px;
     border-top: 2px solid #5f5969;
     border-bottom: 2px solid #5f5969;
 }
 
 .download {
-    padding-top: 32px;
+    display: flex;
+    align-items: center;
+    height: 86px;
+    justify-content: center;
 }
 
 .butt {
     background-color: #453f4d;
     border: 2px solid rgb(218, 209, 230);
     color: rgb(218, 209, 230);
-    width: 350px;
-    height: 60px;
     font-family: inherit;
     border-radius: 10px;
     font-size: 22px;
-    margin: 0 48px;
     padding: 16px 120px;
     transition: 0.3s;
 }
@@ -117,7 +131,8 @@ header {
 .made {
     text-align: center;
     color: rgba(255, 255, 255, 0.6);
-    margin: 20px auto;
+    margin: 24px auto;
+    font-size: 20px;
 }
 
 .made a {
@@ -127,4 +142,106 @@ header {
 
 .made a:hover {
     color: rgb(218, 209, 230);
+}
+
+.folder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: 0.6s;
+}
+
+.folder.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.folder.open .folder-container {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.folder-body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: auto 10px;
+}
+
+.folder-container {
+    background-color: #2d2933;
+    width: 1200px;
+    padding: 20px 20px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.4);
+    transform: translate(0px, -100%);
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.folder-title {
+    text-align: center;
+    font-size: 36px;
+}
+
+.folder-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.folder-block {
+    margin-top: 30px;
+    width: 360px;
+    height: 344px;
+    background-color: #453f4d;
+    border-radius: 30px;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.folder-skinname {
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    font-size: 28px;
+    color: rgb(218, 209, 230);
+}
+
+.folder-preview {
+    width: 360px;
+    height: 200px;
+    border-top: 2px solid #5f5969;
+    border-bottom: 2px solid #5f5969;
+}
+
+.folder-download {
+    display: flex;
+    align-items: center;
+    height: 68px;
+    justify-content: center;
+}
+
+.folder-butt {
+    background-color: #453f4d;
+    border: 2px solid rgb(218, 209, 230);
+    color: rgb(218, 209, 230);
+    font-family: inherit;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 80px;
+    transition: 0.3s;
+}
+
+.folder-butt:hover {
+    background-color: rgb(218, 209, 230);
+    color: #453f4d;
+    cursor: pointer;
 }
