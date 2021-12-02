@@ -1,3 +1,4 @@
+// folders
 const folderLinks = document.querySelectorAll('.folder-link');
 
 if (folderLinks.length > 0) {
@@ -34,3 +35,27 @@ document.addEventListener('keydown', function (e) {
         folderClose(folderActive);
     }
 });
+
+// search
+document.querySelector('#search').oninput = function () {
+    let val = this.value.trim();
+    let blocks = document.querySelectorAll('.block');
+    let searchItems = document.querySelectorAll('.skinname');
+    if (val != '') {
+        blocks.forEach(function(block) {
+            searchItems.forEach(function(item) {
+                if (block.innerText.search(RegExp(val,"gi")) == -1) {
+                    block.classList.add('hide');
+                } else {
+                    block.classList.remove('hide');
+                }
+            });
+        });
+    } else {
+        blocks.forEach(function(block) {
+            searchItems.forEach(function(item) {
+                block.classList.remove('hide');
+            });
+        });
+    }
+}
