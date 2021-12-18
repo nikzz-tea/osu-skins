@@ -41,6 +41,7 @@ document.querySelector('#search').oninput = function () {
     let val = this.value.trim();
     let blocks = document.querySelectorAll('.block');
     let searchItems = document.querySelectorAll('.skinname');
+    let noresults = document.querySelector('.noresults');
     if (val != '') {
         blocks.forEach(function(block) {
             searchItems.forEach(function(item) {
@@ -57,5 +58,11 @@ document.querySelector('#search').oninput = function () {
                 block.classList.remove('hide');
             });
         });
+    };
+    if ($('.hide').length >= blocks.length + 1) {
+        noresults.classList.remove('hide')
+    } else {
+        noresults.classList.add('hide')
     }
+    console.log($('.hide').length)
 }
